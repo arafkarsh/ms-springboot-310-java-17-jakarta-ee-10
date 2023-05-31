@@ -1,13 +1,5 @@
 # Microservice Cache / Kafka Template
 
-Two versions are available for the template
-
-1. [SpringBoot 2.7.2 with Java 8 and Java EE](https://github.com/MetaArivu/ms-cache-kafka-quickstart/tree/SpringBoot-272-Java-8-Java-EE)
-2. [SpringBoot 3.1.0 with Java 17 and Jakarta EE](https://github.com/MetaArivu/ms-cache-kafka-quickstart/tree/SpringBoot-310-Java-17-Jakarta-EE)
-3. [main with SpringBoot 3.1.0 with other features](https://github.com/MetaArivu/ms-cache-kafka-quickstart)
-
-Checkout the respective branches for the Microservices template
-
 ## Microservice Structure
 
 ![Package Structure](https://raw.githubusercontent.com/MetaArivu/ms-cache-kafka-quickstart/master/diagrams/MS-Pkg-Structure.jpg)
