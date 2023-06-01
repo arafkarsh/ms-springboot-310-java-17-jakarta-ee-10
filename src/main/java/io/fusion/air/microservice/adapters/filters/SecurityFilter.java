@@ -55,7 +55,6 @@ public class SecurityFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) _servletRequest;
         HttpServletResponse response = (HttpServletResponse) _servletResponse;
 
-        response.addCookie(Utils.createCookie(request, "SameSite", "Strict"));
         response.addCookie(Utils.createCookie(request, "JSESSIONID", UUID.randomUUID().toString()));
 
         // Return the Headers
