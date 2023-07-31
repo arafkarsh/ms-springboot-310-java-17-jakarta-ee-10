@@ -14,7 +14,7 @@
 6. Encrypting Sensitive Data using Encryption Algorithms (...security)
 7. JPA configurations for H2 and PostgreSQL (...server.config)
 
-### Pre-Requisites ...
+### Pre-Requisites
 
 1. Springboot 3.1
 2. Java 17 
