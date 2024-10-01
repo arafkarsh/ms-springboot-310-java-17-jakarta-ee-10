@@ -39,6 +39,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
@@ -49,6 +50,7 @@ import jakarta.validation.Valid;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.invoke.MethodHandles.lookup;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -82,6 +84,23 @@ public class ProductControllerImpl extends AbstractController {
 
 	@Autowired
 	ProductService productServiceImpl;
+
+	/**
+	 * To Test Virtual Threads in Java 21 onwards
+	 * @param _seconds
+	 * @return
+	 */
+	@GetMapping("/delay/{seconds}")
+	public ResponseEntity<String> getDelayedResponse(@PathVariable("seconds") int _seconds) {
+		log.info("Delay for the  API (sec) = "+_seconds);
+		try {
+			TimeUnit.SECONDS.sleep(_seconds);
+			return ResponseEntity.ok("Request (from Remote) Delayed by "+_seconds+" seconds!");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error While executing the Task!!!");
+		}
+	}
 
 	/**
 	 * Create the Product
